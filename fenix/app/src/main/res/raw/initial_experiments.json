@@ -1,240 +1,504 @@
 {
   "data": [
     {
-      "schemaVersion": "1.10.0",
-      "slug": "android-pre-permission-prompt-experiment-release",
-      "id": "android-pre-permission-prompt-experiment-release",
-      "arguments": {},
-      "application": "org.mozilla.firefox",
+      "schemaVersion": "1.12.0",
+      "slug": "address-bar-focus-mode-android",
+      "id": "address-bar-focus-mode-android",
       "appName": "fenix",
       "appId": "org.mozilla.firefox",
       "channel": "release",
-      "userFacingName": "Android Pre-Permission Prompt Experiment - Release",
-      "userFacingDescription": "If we show the pre-permission prompt to opt in to notifications for new users, then users will be more likely to opt in to receiving notifications.",
-      "isEnrollmentPaused": true,
+      "userFacingName": "Address bar focus mode - Android",
+      "userFacingDescription": "Address bar focus mode",
+      "isEnrollmentPaused": false,
       "isRollout": false,
       "bucketConfig": {
         "randomizationUnit": "nimbus_id",
-        "namespace": "fenix-pre-permission-notification-prompt-release-1",
+        "namespace": "fenix-addressbar-focus-mode-release-1",
         "start": 0,
         "count": 10000,
         "total": 10000
       },
       "featureIds": [
-        "pre-permission-notification-prompt"
+        "addressbar-focus-mode"
       ],
-      "probeSets": [],
-      "outcomes": [],
+      "outcomes": [
+        {
+          "slug": "awesomebar",
+          "priority": "primary"
+        },
+        {
+          "slug": "default-browser",
+          "priority": "primary"
+        }
+      ],
       "branches": [
         {
           "slug": "control",
           "ratio": 1,
           "feature": {
-            "featureId": "pre-permission-notification-prompt",
-            "enabled": true,
-            "value": {
-              "enabled": false
+            "featureId": "this-is-included-for-mobile-pre-96-support",
+            "enabled": false,
+            "value": {}
+          },
+          "features": [
+            {
+              "featureId": "addressbar-focus-mode",
+              "value": {
+                "enabled": false
+              }
             }
-          }
+          ]
         },
         {
           "slug": "treatment-a",
           "ratio": 1,
           "feature": {
-            "featureId": "pre-permission-notification-prompt",
-            "enabled": true,
-            "value": {
-              "enabled": true
+            "featureId": "this-is-included-for-mobile-pre-96-support",
+            "enabled": false,
+            "value": {}
+          },
+          "features": [
+            {
+              "featureId": "addressbar-focus-mode",
+              "value": {
+                "enabled": true
+              }
             }
-          }
+          ]
         }
       ],
-      "targeting": "((is_already_enrolled) || (((android_sdk_version|versionCompare('33') >= 0) && is_first_run) && (app_version|versionCompare('110.!') >= 0)))",
-      "startDate": "2023-01-31",
-      "enrollmentEndDate": "2023-02-22",
+      "targeting": "(('address-bar-focus-mode-android' in active_experiments) || ((app_version|versionCompare('157.!') >= 0)))",
+      "startDate": "2026-09-25",
+      "enrollmentEndDate": null,
+      "endDate": null,
+      "proposedDuration": 21,
+      "proposedEnrollment": 7,
+      "referenceBranch": "control",
+      "featureValidationOptOut": false,
+      "localizations": null,
+      "locales": null,
+      "publishedDate": "2026-09-25T15:06:27.568657Z",
+      "isFirefoxLabsOptIn": false,
+      "firefoxLabsTitle": "",
+      "firefoxLabsDescription": "",
+      "firefoxLabsDescriptionLinks": null,
+      "firefoxLabsGroup": "",
+      "requiresRestart": false
+    },
+    {
+      "schemaVersion": "1.12.0",
+      "slug": "add-voice-search-icon-to-addressbar-rollout",
+      "id": "add-voice-search-icon-to-addressbar-rollout",
+      "appName": "fenix",
+      "appId": "org.mozilla.firefox",
+      "channel": "release",
+      "userFacingName": "Add voice search icon to addressbar (Rollout)",
+      "userFacingDescription": "Add voice search icon to addressbar",
+      "isEnrollmentPaused": false,
+      "isRollout": true,
+      "bucketConfig": {
+        "randomizationUnit": "nimbus_id",
+        "namespace": "fenix-voice-search-in-display-mode-release-no_targeting-rollout-1",
+        "start": 0,
+        "count": 10000,
+        "total": 10000
+      },
+      "featureIds": [
+        "voice-search-in-display-mode"
+      ],
+      "outcomes": [
+        {
+          "slug": "awesomebar",
+          "priority": "primary"
+        },
+        {
+          "slug": "default-browser",
+          "priority": "primary"
+        }
+      ],
+      "branches": [
+        {
+          "slug": "control",
+          "ratio": 1,
+          "feature": {
+            "featureId": "this-is-included-for-mobile-pre-96-support",
+            "enabled": false,
+            "value": {}
+          },
+          "features": [
+            {
+              "featureId": "voice-search-in-display-mode",
+              "value": {
+                "enabled": true
+              }
+            }
+          ]
+        }
+      ],
+      "targeting": "(('add-voice-search-icon-to-addressbar-rollout' in active_experiments) || ((app_version|versionCompare('153.!') >= 0)))",
+      "startDate": "2026-08-13",
+      "enrollmentEndDate": null,
+      "endDate": null,
+      "proposedDuration": 14,
+      "proposedEnrollment": 7,
+      "referenceBranch": "control",
+      "featureValidationOptOut": false,
+      "localizations": null,
+      "locales": null,
+      "publishedDate": "2026-08-13T22:48:24.908053Z",
+      "isFirefoxLabsOptIn": false,
+      "firefoxLabsTitle": "",
+      "firefoxLabsDescription": "",
+      "firefoxLabsDescriptionLinks": null,
+      "firefoxLabsGroup": "",
+      "requiresRestart": false
+    },
+    {
+      "schemaVersion": "1.12.0",
+      "slug": "android-import-bookmarks",
+      "id": "android-import-bookmarks",
+      "appName": "fenix",
+      "appId": "org.mozilla.firefox",
+      "channel": "release",
+      "userFacingName": "Android - Import Bookmarks",
+      "userFacingDescription": "Import Bookmarks using a .csv file",
+      "isEnrollmentPaused": false,
+      "isRollout": true,
+      "bucketConfig": {
+        "randomizationUnit": "nimbus_id",
+        "namespace": "fenix-import-bookmarks-release-no_targeting-rollout-1",
+        "start": 0,
+        "count": 10000,
+        "total": 10000
+      },
+      "featureIds": [
+        "import-bookmarks"
+      ],
+      "outcomes": [
+        {
+          "slug": "awesomebar",
+          "priority": "primary"
+        },
+        {
+          "slug": "default-browser",
+          "priority": "primary"
+        }
+      ],
+      "branches": [
+        {
+          "slug": "control",
+          "ratio": 1,
+          "feature": {
+            "featureId": "this-is-included-for-mobile-pre-96-support",
+            "enabled": false,
+            "value": {}
+          },
+          "features": [
+            {
+              "featureId": "import-bookmarks",
+              "value": {
+                "enabled": true
+              }
+            }
+          ]
+        }
+      ],
+      "targeting": "(('android-import-bookmarks' in active_experiments) || ((app_version|versionCompare('153.!') >= 0)))",
+      "startDate": "2026-07-27",
+      "enrollmentEndDate": null,
       "endDate": null,
       "proposedDuration": 28,
-      "proposedEnrollment": 8,
+      "proposedEnrollment": 7,
       "referenceBranch": "control",
-      "featureValidationOptOut": false
+      "featureValidationOptOut": false,
+      "localizations": null,
+      "locales": null,
+      "publishedDate": "2026-07-27T15:23:45.606237Z",
+      "isFirefoxLabsOptIn": false,
+      "firefoxLabsTitle": "",
+      "firefoxLabsDescription": "",
+      "firefoxLabsDescriptionLinks": null,
+      "firefoxLabsGroup": "",
+      "requiresRestart": false
     },
     {
-      "schemaVersion": "1.10.0",
-      "slug": "android-reengagment-notifications-release",
-      "id": "android-reengagment-notifications-release",
-      "arguments": {},
-      "application": "org.mozilla.firefox",
+      "schemaVersion": "1.12.0",
+      "slug": "android-marketing-card-removal-eu-removal-release",
+      "id": "android-marketing-card-removal-eu-removal-release",
       "appName": "fenix",
       "appId": "org.mozilla.firefox",
       "channel": "release",
-      "userFacingName": "Android Reengagment Notifications Release",
-      "userFacingDescription": "Re engagement notifications on Android",
-      "isEnrollmentPaused": true,
-      "isRollout": false,
+      "userFacingName": "Android - Marketing Card Removal EU Removal Release",
+      "userFacingDescription": "Marketing Card EU",
+      "isEnrollmentPaused": false,
+      "isRollout": true,
       "bucketConfig": {
         "randomizationUnit": "nimbus_id",
-        "namespace": "fenix-re-engagement-notification-release-1",
+        "namespace": "fenix-marketing-onboarding-card-release-mobile_first_run-rollout-1",
         "start": 0,
         "count": 10000,
         "total": 10000
       },
       "featureIds": [
-        "re-engagement-notification"
+        "marketing-onboarding-card"
       ],
-      "probeSets": [],
-      "outcomes": [],
-      "branches": [
+      "outcomes": [
         {
-          "slug": "control-no-notification",
-          "ratio": 1,
-          "feature": {
-            "featureId": "re-engagement-notification",
-            "enabled": true,
-            "value": {
-              "enabled": false
-            }
-          }
-        },
-        {
-          "slug": "treatment-notification",
-          "ratio": 1,
-          "feature": {
-            "featureId": "re-engagement-notification",
-            "enabled": true,
-            "value": {
-              "enabled": true
-            }
-          }
+          "slug": "onboarding",
+          "priority": "primary"
         }
       ],
-      "targeting": "((is_already_enrolled) || ((isFirstRun == 'true') && (app_version|versionCompare('109.!') >= 0)))",
-      "startDate": "2022-12-08",
-      "enrollmentEndDate": "2023-01-31",
-      "endDate": null,
-      "proposedDuration": 56,
-      "proposedEnrollment": 28,
-      "referenceBranch": "control-no-notification",
-      "featureValidationOptOut": false
-    },
-    {
-      "schemaVersion": "1.10.0",
-      "slug": "release-android-sign-to-sync-onboarding-page",
-      "id": "release-android-sign-to-sync-onboarding-page",
-      "arguments": {},
-      "application": "org.mozilla.firefox",
-      "appName": "fenix",
-      "appId": "org.mozilla.firefox",
-      "channel": "release",
-      "userFacingName": "[release] Android Sign to Sync onboarding page",
-      "userFacingDescription": "This experiement moves the sign-in to sync panel to the top of the onboarding page, where it previously was under themes and toolbar positioning.",
-      "isEnrollmentPaused": false,
-      "isRollout": false,
-      "bucketConfig": {
-        "randomizationUnit": "nimbus_id",
-        "namespace": "fenix-onboarding-release-1",
-        "start": 0,
-        "count": 3600,
-        "total": 10000
-      },
-      "featureIds": [
-        "onboarding"
-      ],
-      "probeSets": [],
-      "outcomes": [],
       "branches": [
         {
           "slug": "control",
           "ratio": 1,
           "feature": {
-            "featureId": "onboarding",
-            "enabled": true,
+            "featureId": "this-is-included-for-mobile-pre-96-support",
+            "enabled": false,
             "value": {}
-          }
-        },
-        {
-          "slug": "treatment-a",
-          "ratio": 1,
-          "feature": {
-            "featureId": "onboarding",
-            "enabled": true,
-            "value": {
-              "order": [
-                "sync",
-                "themes",
-                "toolbar-placement",
-                "tcp",
-                "privacy-notice"
-              ]
+          },
+          "features": [
+            {
+              "featureId": "marketing-onboarding-card",
+              "value": {
+                "enabled": false
+              }
             }
-          }
+          ]
         }
       ],
-      "targeting": "((is_already_enrolled) || ((isFirstRun == 'true') && (app_version|versionCompare('111.!') >= 0)))",
-      "startDate": "2023-02-27",
-      "enrollmentEndDate": "2023-04-01",
+      "targeting": "((is_already_enrolled) || ((isFirstRun == 'true') && (app_version|versionCompare('151.0.1') >= 0) && (region in ['AT', 'BE', 'DE', 'ES', 'FR', 'IE', 'NL'])))",
+      "startDate": "2026-05-22",
+      "enrollmentEndDate": null,
       "endDate": null,
-      "proposedDuration": 61,
-      "proposedEnrollment": 33,
+      "proposedDuration": 15,
+      "proposedEnrollment": 14,
       "referenceBranch": "control",
-      "featureValidationOptOut": false
+      "featureValidationOptOut": false,
+      "localizations": null,
+      "locales": null,
+      "publishedDate": "2026-05-22T11:26:14.120723Z",
+      "isFirefoxLabsOptIn": false,
+      "firefoxLabsTitle": "",
+      "firefoxLabsDescription": "",
+      "firefoxLabsDescriptionLinks": null,
+      "firefoxLabsGroup": "",
+      "requiresRestart": false
     },
     {
-      "schemaVersion": "1.10.0",
-      "slug": "test-android-notifications",
-      "id": "test-android-notifications",
-      "arguments": {},
-      "application": "org.mozilla.firefox_beta",
+      "schemaVersion": "1.12.0",
+      "slug": "android-shake-to-summarize-language-expansion-release-rollout",
+      "id": "android-shake-to-summarize-language-expansion-release-rollout",
       "appName": "fenix",
-      "appId": "org.mozilla.firefox_beta",
-      "channel": "beta",
-      "userFacingName": "Android Reengagment Notifications",
-      "userFacingDescription": "Re engagement notifications on Android",
+      "appId": "org.mozilla.firefox",
+      "channel": "release",
+      "userFacingName": "Android - Shake To Summarize - Language Expansion (Release Rollout)",
+      "userFacingDescription": "Shake to Summarize Language Expansion",
       "isEnrollmentPaused": false,
-      "isRollout": false,
+      "isRollout": true,
       "bucketConfig": {
         "randomizationUnit": "nimbus_id",
-        "namespace": "fenix-re-engagement-notification-beta-3",
+        "namespace": "fenix-shake-to-summarize-release-no_targeting-rollout-2",
         "start": 0,
         "count": 10000,
         "total": 10000
       },
       "featureIds": [
-        "re-engagement-notification"
+        "shake-to-summarize"
       ],
-      "probeSets": [],
+      "outcomes": [
+        {
+          "slug": "awesomebar",
+          "priority": "primary"
+        },
+        {
+          "slug": "default-browser",
+          "priority": "primary"
+        }
+      ],
+      "branches": [
+        {
+          "slug": "control",
+          "ratio": 1,
+          "feature": {
+            "featureId": "this-is-included-for-mobile-pre-96-support",
+            "enabled": false,
+            "value": {}
+          },
+          "features": [
+            {
+              "featureId": "shake-to-summarize",
+              "value": {
+                "enabled": true
+              }
+            }
+          ]
+        }
+      ],
+      "targeting": "(('android-shake-to-summarize-language-expansion-release-rollout' in active_experiments) || ((app_version|versionCompare('153.!') >= 0) && (language in ['de', 'en', 'es', 'fr', 'it', 'ja', 'pt']))) && (user_disabled_ai == false)",
+      "startDate": "2026-07-20",
+      "enrollmentEndDate": null,
+      "endDate": null,
+      "proposedDuration": 28,
+      "proposedEnrollment": 7,
+      "referenceBranch": "control",
+      "featureValidationOptOut": false,
+      "localizations": null,
+      "locales": null,
+      "publishedDate": "2026-07-20T15:59:29.000854Z",
+      "isFirefoxLabsOptIn": false,
+      "firefoxLabsTitle": "",
+      "firefoxLabsDescription": "",
+      "firefoxLabsDescriptionLinks": null,
+      "firefoxLabsGroup": "",
+      "requiresRestart": false
+    },
+    {
+      "schemaVersion": "1.12.0",
+      "slug": "long-term-holdback-2025-h1-growth-android",
+      "id": "long-term-holdback-2025-h1-growth-android",
+      "appName": "fenix",
+      "appId": "org.mozilla.firefox",
+      "channel": "release",
+      "userFacingName": "Long term holdback 2025 H1 Growth Android",
+      "userFacingDescription": "Long-term holdback for growth experiments",
+      "isEnrollmentPaused": false,
+      "isRollout": false,
+      "bucketConfig": {
+        "randomizationUnit": "nimbus_id",
+        "namespace": "fenix-no-feature-fenix-release-4",
+        "start": 0,
+        "count": 10000,
+        "total": 10000
+      },
+      "featureIds": [
+        "no-feature-fenix"
+      ],
       "outcomes": [],
       "branches": [
         {
-          "slug": "control-no-notification",
-          "ratio": 1,
+          "slug": "delivery",
+          "ratio": 19,
           "feature": {
-            "featureId": "re-engagement-notification",
-            "enabled": true,
-            "value": {
-              "enabled": false
+            "featureId": "this-is-included-for-mobile-pre-96-support",
+            "enabled": false,
+            "value": {}
+          },
+          "features": [
+            {
+              "featureId": "no-feature-fenix",
+              "value": {}
             }
-          }
+          ]
         },
         {
-          "slug": "treatment-notification",
+          "slug": "holdback",
           "ratio": 1,
           "feature": {
-            "featureId": "re-engagement-notification",
-            "enabled": true,
-            "value": {
-              "enabled": true
+            "featureId": "this-is-included-for-mobile-pre-96-support",
+            "enabled": false,
+            "value": {}
+          },
+          "features": [
+            {
+              "featureId": "no-feature-fenix",
+              "value": {}
             }
-          }
+          ]
         }
       ],
-      "targeting": "((is_already_enrolled) || ((isFirstRun == 'true') && (app_version|versionCompare('109.!') >= 0)))",
-      "startDate": "2022-12-08",
-      "enrollmentEndDate": "2023-01-05",
+      "targeting": "((is_already_enrolled) || ((app_version|versionCompare('123.!') >= 0)))",
+      "startDate": "2024-12-12",
+      "enrollmentEndDate": null,
       "endDate": null,
-      "proposedDuration": 56,
-      "proposedEnrollment": 28,
-      "referenceBranch": "control-no-notification",
-      "featureValidationOptOut": false
+      "proposedDuration": 100,
+      "proposedEnrollment": 100,
+      "referenceBranch": "holdback",
+      "featureValidationOptOut": false,
+      "localizations": null,
+      "locales": null,
+      "publishedDate": "2024-12-12T20:20:50.686475Z",
+      "isFirefoxLabsOptIn": false,
+      "firefoxLabsTitle": null,
+      "firefoxLabsDescription": null,
+      "firefoxLabsDescriptionLinks": null,
+      "firefoxLabsGroup": null,
+      "requiresRestart": false
+    },
+    {
+      "schemaVersion": "1.12.0",
+      "slug": "tab-groups-android-rollout",
+      "id": "tab-groups-android-rollout",
+      "appName": "fenix",
+      "appId": "org.mozilla.firefox",
+      "channel": "release",
+      "userFacingName": "Tab Groups - Android - Rollout",
+      "userFacingDescription": "Tab Groups for Android",
+      "isEnrollmentPaused": false,
+      "isRollout": true,
+      "bucketConfig": {
+        "randomizationUnit": "nimbus_id",
+        "namespace": "fenix-tab-groups-tab-groups-drag-and-drop-release-no_targeting-rollout-1",
+        "start": 0,
+        "count": 10000,
+        "total": 10000
+      },
+      "featureIds": [
+        "tab-groups",
+        "tab-groups-drag-and-drop"
+      ],
+      "outcomes": [
+        {
+          "slug": "awesomebar",
+          "priority": "primary"
+        },
+        {
+          "slug": "default-browser",
+          "priority": "primary"
+        }
+      ],
+      "branches": [
+        {
+          "slug": "control",
+          "ratio": 1,
+          "feature": {
+            "featureId": "this-is-included-for-mobile-pre-96-support",
+            "enabled": false,
+            "value": {}
+          },
+          "features": [
+            {
+              "featureId": "tab-groups",
+              "value": {
+                "enabled": true
+              }
+            },
+            {
+              "featureId": "tab-groups-drag-and-drop",
+              "value": {
+                "enabled": true
+              }
+            }
+          ]
+        }
+      ],
+      "targeting": "((is_already_enrolled) || ((app_version|versionCompare('152.!') >= 0)))",
+      "startDate": "2026-05-20",
+      "enrollmentEndDate": null,
+      "endDate": null,
+      "proposedDuration": 28,
+      "proposedEnrollment": 14,
+      "referenceBranch": "control",
+      "featureValidationOptOut": false,
+      "localizations": null,
+      "locales": null,
+      "publishedDate": "2026-05-20T14:52:34.758303Z",
+      "isFirefoxLabsOptIn": false,
+      "firefoxLabsTitle": "",
+      "firefoxLabsDescription": "",
+      "firefoxLabsDescriptionLinks": null,
+      "firefoxLabsGroup": "",
+      "requiresRestart": false
     }
   ]
 }
